@@ -37,3 +37,16 @@ scrape_configs:
 
     static_configs:
       - targets: ['metrics-gateway:9091']
+      
+  - job_name: 'jenkins'
+
+    metrics_path: /prometheus
+    scheme: http
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['3.17.160.172:8081']
+    basic_auth:
+      username: 'ahmed'
+      password: '123'
+
